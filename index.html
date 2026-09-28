@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Axiom Search — Talent search, leadership hiring, talent mapping and market intelligence.">
+  <meta name="theme-color" content="#0b1720">
+  <title>Axiom Search | Finding the People Who Move Businesses Forward</title>
+  <style>
+    :root{
+      --navy:#0b1720;
+      --blue:#14527a;
+      --blue2:#1e6b9d;
+      --red:#c91f2d;
+      --ink:#16232d;
+      --muted:#66727c;
+      --line:#dfe5e8;
+      --soft:#f5f7f8;
+      --white:#fff;
+      --max:1180px;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,229,232,.8)}
+    .nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.02em}
+    .brand img{width:58px;height:58px;object-fit:contain}
+    .brand span{font-size:18px;letter-spacing:.12em;color:var(--blue)}
+    .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:600;color:#40505b}
+    .links a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-size:14px;font-weight:750;border:1px solid transparent;transition:.2s ease}
+    .btn-primary{background:var(--navy);color:white}
+    .btn-primary:hover{transform:translateY(-2px);background:#152b39}
+    .btn-outline{border-color:#b9c5cc;color:var(--navy)}
+    .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+    .menu{display:none;background:none;border:0;font-size:28px}
+    .hero{padding:92px 0 80px;background:linear-gradient(135deg,#f7fafb 0%,#fff 55%,#eef5f8 100%);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:800;color:var(--blue)}
+    .eyebrow:before{content:"";width:30px;height:2px;background:var(--red)}
+    h1{font-size:clamp(48px,6vw,78px);line-height:1.02;letter-spacing:-.045em;margin:20px 0 24px;color:var(--navy)}
+    .hero p{font-size:19px;color:var(--muted);max-width:650px;margin:0 0 34px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{background:white;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 20px 60px rgba(15,40,55,.10);position:relative}
+    .hero-card:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;right:-35px;top:-35px;background:rgba(201,31,45,.08)}
+    .hero-logo{width:min(290px,70%);margin:0 auto 24px}
+    .card-line{height:1px;background:var(--line);margin:22px 0}
+    .metric{display:flex;justify-content:space-between;gap:20px;font-size:14px;color:var(--muted);margin:12px 0}
+    .metric strong{color:var(--navy)}
+    section{padding:92px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:45px}
+    .section-head h2{margin:0;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.035em;color:var(--navy)}
+    .section-head p{max-width:520px;margin:0;color:var(--muted)}
+    .about{background:var(--navy);color:white}
+    .about .section-head h2{color:white}
+    .about .section-head p{color:#bdc9d0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .about-copy{font-size:20px;color:#d9e1e5}
+    .about-copy strong{color:white}
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pillar{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:22px;background:rgba(255,255,255,.04)}
+    .pillar b{display:block;margin-bottom:7px}
+    .pillar span{font-size:14px;color:#aebbc2}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{border:1px solid var(--line);border-radius:var(--radius);padding:30px;min-height:235px;transition:.25s ease;background:white}
+    .service:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(15,40,55,.08)}
+    .number{font-size:12px;font-weight:800;color:var(--red);letter-spacing:.15em}
+    .service h3{font-size:22px;margin:24px 0 10px;color:var(--navy)}
+    .service p{color:var(--muted);font-size:15px}
+    .industries{background:var(--soft)}
+    .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .industry{padding:22px;border:1px solid var(--line);background:white;border-radius:14px;font-weight:700}
+    .approach{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+    .steps{display:grid;gap:0}
+    .step{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:0}
+    .step-num{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#edf4f8;color:var(--blue);font-weight:800}
+    .step h3{margin:0 0 5px;color:var(--navy)}
+    .step p{margin:0;color:var(--muted);font-size:15px}
+    .cta{padding:80px 0;background:linear-gradient(110deg,var(--blue),var(--navy));color:white}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
+    .cta h2{font-size:clamp(34px,4vw,54px);line-height:1.05;margin:0 0 12px;letter-spacing:-.035em}
+    .cta p{margin:0;color:#d2e0e7;max-width:600px}
+    .cta .btn-primary{background:white;color:var(--navy)}
+    footer{background:#071018;color:#aab8c0;padding:55px 0 25px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px}
+    .footer-brand{display:flex;align-items:center;gap:12px;color:white;font-weight:800}
+    .footer-brand img{width:54px;height:54px;object-fit:contain}
+    footer h4{color:white;margin:0 0 12px}
+    footer a:hover{color:white}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:20px;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:900px){
+      .links{display:none}.menu{display:block}.hero-grid,.about-grid,.approach{grid-template-columns:1fr}.hero{padding-top:60px}.hero-card{max-width:480px}
+      .cards{grid-template-columns:1fr 1fr}.industry-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}
+      .cta-inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:600px){
+      .container{width:min(var(--max),calc(100% - 28px))}.nav-inner{height:72px}.brand img{width:50px;height:50px}.brand span{font-size:15px}
+      section{padding:68px 0}.hero{padding:55px 0 65px}h1{font-size:48px}.hero p{font-size:17px}
+      .cards,.industry-grid,.pillars,.footer-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:18px}
+      .hero-card{padding:24px}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:7px}
+    }
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home" aria-label="Axiom Search home">
+      <img src="logo.jpg" alt="Axiom Search logo">
+      <span>AXIOM SEARCH</span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a><a href="#services">Services</a><a href="#industries">Industries</a><a href="#approach">Approach</a>
+      <a class="btn btn-primary" href="#contact">Contact</a>
+    </nav>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.mobile').classList.toggle('open')">☰</button>
+  </div>
+  <div class="mobile" style="display:none;background:white;border-top:1px solid #e5eaed;padding:14px 20px">
+    <a href="#about" style="display:block;padding:10px 0">About</a><a href="#services" style="display:block;padding:10px 0">Services</a><a href="#industries" style="display:block;padding:10px 0">Industries</a><a href="#approach" style="display:block;padding:10px 0">Approach</a><a href="#contact" style="display:block;padding:10px 0;font-weight:800">Contact</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Talent Search & Advisory</div>
+      <h1>Finding the People Who Move Businesses Forward.</h1>
+      <p>Axiom Search partners with organisations to identify, assess and attract exceptional talent across critical management and leadership roles.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Discuss a Search</a>
+        <a class="btn btn-outline" href="#services">Explore Our Services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img class="hero-logo" src="logo.jpg" alt="Axiom Search">
+      <div class="card-line"></div>
+      <div class="metric"><span>Focus</span><strong>Mid–Senior Management</strong></div>
+      <div class="metric"><span>Coverage</span><strong>India & International</strong></div>
+      <div class="metric"><span>Approach</span><strong>Research-led</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head"><h2>Built around research.<br>Driven by people.</h2><p>Axiom Search combines disciplined market research with a practical understanding of organisations, roles and talent markets.</p></div>
+    <div class="about-grid">
+      <div class="about-copy">We work with businesses that need more than a database of candidates. <strong>Our role is to understand the mandate, map the market, identify the right people and build the conversation.</strong><br><br>From focused management searches to broader talent mapping, we bring a structured and confidential approach to every assignment.</div>
+      <div class="pillars">
+        <div class="pillar"><b>Research-led</b><span>Deep market mapping and targeted identification.</span></div>
+        <div class="pillar"><b>Confidential</b><span>Discreet engagement for sensitive mandates.</span></div>
+        <div class="pillar"><b>Focused</b><span>Clear briefs, disciplined search and relevant outreach.</span></div>
+        <div class="pillar"><b>Partner-led</b><span>Senior involvement throughout the assignment.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head"><h2>What we do.</h2><p>Search and talent intelligence services designed around the hiring problem, not a one-size-fits-all process.</p></div>
+    <div class="cards">
+      <article class="service"><div class="number">01</div><h3>Leadership Search</h3><p>Targeted searches for leadership and business-critical positions where quality and discretion matter.</p></article>
+      <article class="service"><div class="number">02</div><h3>Management Search</h3><p>Mid to senior management hiring across specialist, functional and business roles.</p></article>
+      <article class="service"><div class="number">03</div><h3>Talent Mapping</h3><p>Structured market maps that identify relevant organisations, talent pools and potential candidates.</p></article>
+      <article class="service"><div class="number">04</div><h3>Market Intelligence</h3><p>Research that helps clients understand talent availability, organisation structures and market movements.</p></article>
+      <article class="service"><div class="number">05</div><h3>Confidential Search</h3><p>Discreet search assignments handled with careful stakeholder and candidate communication.</p></article>
+      <article class="service"><div class="number">06</div><h3>Research Support</h3><p>Research-led support for organisations and search teams requiring additional market coverage.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="section-head"><h2>Across sectors.<br>Deep where it matters.</h2><p>Our search work can be tailored to the talent dynamics and business context of each sector.</p></div>
+    <div class="industry-grid">
+      <div class="industry">Technology & Digital</div><div class="industry">Financial Services</div><div class="industry">Consumer & Retail</div>
+      <div class="industry">Industrial & Manufacturing</div><div class="industry">Healthcare & Life Sciences</div><div class="industry">Professional Services</div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="container approach">
+    <div>
+      <div class="eyebrow">Our approach</div>
+      <h2 style="font-size:clamp(38px,5vw,62px);line-height:1.04;letter-spacing:-.04em;margin:18px 0;color:var(--navy)">A disciplined search, from brief to close.</h2>
+      <p style="color:var(--muted);max-width:470px">Every assignment starts with clarity on the role and ends with a candidate who understands the opportunity.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><h3>Understand</h3><p>Clarify the business context, role, mandate, reporting structure and success profile.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><h3>Map</h3><p>Build the relevant market universe and identify organisations and talent pools.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h3>Assess</h3><p>Research backgrounds, experience and motivations against the agreed brief.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h3>Engage</h3><p>Run a focused, confidential process with clear communication at every stage.</p></div></div>
+      <div class="step"><div class="step-num">05</div><div><h3>Close</h3><p>Support stakeholder alignment, candidate engagement and a smooth transition to offer.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container cta-inner">
+    <div><h2>Have a critical role to fill?</h2><p>Tell us about the mandate. We'll start with the market, the role and the people who could make a difference.</p></div>
+    <a class="btn btn-primary" href="mailto:mohit@axiomsearch.in?subject=Axiom%20Search%20Enquiry">Start a Conversation</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="logo.jpg" alt=""><span>AXIOM SEARCH</span></div>
+        <p style="max-width:390px">Talent search, market mapping and research-led hiring support for organisations building their next level of leadership and management.</p>
+      </div>
+      <div><h4>Explore</h4><p><a href="#about">About</a></p><p><a href="#services">Services</a></p><p><a href="#industries">Industries</a></p><p><a href="#approach">Approach</a></p></div>
+      <div><h4>Contact</h4><p><a href="mailto:mohit@axiomsearch.in">mohit@axiomsearch.in</a></p><p><a href="tel:+918287322269">+91 82873 22269</a></p><p>Founder: Mohit Kumar</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Axiom Search. All rights reserved.</span><span>axiomsearch.in</span></div>
+  </div>
+</footer>
+<script>
+  const mobile = document.querySelector('.mobile');
+  document.querySelectorAll('.mobile a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('open')));
+  const style = document.createElement('style');
+  style.textContent = '.mobile.open{display:block!important}';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
